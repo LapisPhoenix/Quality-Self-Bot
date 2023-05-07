@@ -182,7 +182,17 @@ async def mock(ctx, *, message):
 async def ascii(ctx, *, message):
     """ Creates an ascii art message """
 
-    await ctx.send(f"```{pyfiglet.figlet_format(message)}```")
+    new_message = f"```{pyfiglet.figlet_format(message)}```"
+
+    if len(new_message) > 4000:
+        await ctx.send("Message too long!")
+        return
+    
+    if new_message == "``````":
+        await ctx.send("You cannot use emojis!")
+        return
+
+    await ctx.send(new_message)
 
 
 @client.command()
@@ -365,9 +375,20 @@ async def playing(ctx):
     """ Get the current song """
     global SPOTIFY
 
-    song_name = SPOTIFY.get_current_track()["item"]["name"]
+    current_track = SPOTIFY.get_current_track()["item"]
+    song_name = current_track["name"]
+    song_artist = current_track["artists"][0]["name"]
+    track_uri = SPOTIFY.playing_track_info()["item"]["uri"]
+    info = SPOTIFY.track_info(track_uri)
 
-    await ctx.send(f">>> Currently playing **{song_name}**!")
+    time_elapsed = SPOTIFY.playing_track_info()["progress_ms"]
+    time_total = info["duration_ms"]
+
+    player = utils.player.Player(time_elapsed, time_total, song_name, song_artist)
+    message = player.generate()
+
+    # Format like an mp3 player
+    await ctx.send(message)
 
 @client.command()
 async def time(ctx):
@@ -377,14 +398,21 @@ async def time(ctx):
     await ctx.send(f">>> It is currently **{time}**.")
 
 @client.command()
+async def date(ctx):
+    """ Get the current date """
+
+    date = datetime.datetime.now().strftime("%B %d, %Y")
+    await ctx.send(f">>> Today is **{date}**.")
+
+@client.command()
 async def generate_readme(ctx):
     """ DEVELOPER COMMAND: Generate the README.md file """
     if client.user.id != 966515900100538390:
         return
-    
-    await ctx.send("Generating README.md...")
+
+    message = await ctx.send("Generating README.md...")
     utils.generate_readme.generate(client, utils.generate_readme.inital_text)
-    await ctx.send("README.md generated!")
+    await message.edit("***README.md generated!***")
 
 
 ###############################################################################################

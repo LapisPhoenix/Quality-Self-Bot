@@ -19,6 +19,12 @@ class Spotify:
 
     def play_track(self, track_uri):
         self.sp.start_playback(uris=[track_uri])
+    
+    def track_info(self, track_uri):
+        return self.sp.track(track_uri)
+
+    def playing_track_info(self):
+        return self.sp.currently_playing()
 
     def pause_track(self):
         self.sp.pause_playback()
@@ -43,5 +49,6 @@ class Spotify:
         track_uri = results['tracks']['items'][0]['uri']
         self.play_track(track_uri)
         song_name = results['tracks']['items'][0]['name']
+        song_artist = results['tracks']['items'][0]['artists'][0]['name']
 
-        return song_name
+        return song_name, song_artist

@@ -9,6 +9,17 @@ inital_text = """<p align="center">
   <img alit="Last Commit" src="https://img.shields.io/github/last-commit/LapisPhoenix/Quality-Self-Bot?style=flat-square">
 </p>
 
+
+# Features
+- Spotify Control
+- Random Dog and Cat Images
+- Random Jokes
+- Utility Commands
+- Plus More!
+
+
+---
+
 # Installtion
 
 ## Prerequisites
@@ -51,10 +62,10 @@ CHANNELS_TO_MONITOR_IDS=<channel_ids>
 SPOTIFY_CLIENT_ID=<your_spotify_client_id>
 SPOTIFY_CLIENT_SECRET=<your_spotify_client_secret>
 ```
-Replace <your_discord_token>, <your_prefix>, <channel_ids>, <your_spotify_client_id>, and <your_spotify_client_secret> with the respective values you obtained in steps 3 and 4.
+Replace `<your_discord_token>`, `<your_prefix>`, `<channel_ids>`, `<your_spotify_client_id>`, and `<your_spotify_client_secret>` with the respective values you obtained in steps 3 and 4.
 
-- <your_prefix>: Replace with the prefix you want your bot to use for its commands (e.g., !, ?, or any other character).
-- <channel_ids>: Replace with a comma-separated list of channel IDs you want to monitor (e.g., 123456789012345678,987654321098765432). If you don't want to monitor specific channels, replace it with the word None.
+- `<your_prefix>`: Replace with the prefix you want your bot to use for its commands (e.g., `!`, `?`, or any other character).
+- `<channel_ids>`: Replace with a comma-separated list of channel IDs you want to monitor (e.g., `123456789012345678,987654321098765432`). If you don't want to monitor specific channels, replace it with the word None.
 
 Save your `.env` file with the changes.
 
@@ -69,7 +80,8 @@ Your bot should now be running and connected to your Discord client. If you enco
 
 ---
 
-# Commands"""
+# Commands
+"""
 
 def generate(bot: commands.Bot, inital_text: str = ""):
     inital_text = inital_text.replace("\\", "\\\\")

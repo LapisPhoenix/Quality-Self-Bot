@@ -6,6 +6,17 @@
   <img alit="Last Commit" src="https://img.shields.io/github/last-commit/LapisPhoenix/Quality-Self-Bot?style=flat-square">
 </p>
 
+
+# Features
+- Spotify Control
+- Random Dog and Cat Images
+- Random Jokes
+- Utility Commands
+- Plus More!
+
+
+---
+
 # Installtion
 
 ## Prerequisites
@@ -50,8 +61,8 @@ SPOTIFY_CLIENT_SECRET=<your_spotify_client_secret>
 ```
 Replace `<your_discord_token>`, `<your_prefix>`, `<channel_ids>`, `<your_spotify_client_id>`, and `<your_spotify_client_secret>` with the respective values you obtained in steps 3 and 4.
 
-- `<your_prefix>`: Replace with the prefix you want your bot to use for its commands (e.g., !, ?, or any other character).
-- `<channel_ids>`: Replace with a comma-separated list of channel IDs you want to monitor (e.g., 123456789012345678,987654321098765432). If you don't want to monitor specific channels, replace it with the word None.
+- `<your_prefix>`: Replace with the prefix you want your bot to use for its commands (e.g., `!`, `?`, or any other character).
+- `<channel_ids>`: Replace with a comma-separated list of channel IDs you want to monitor (e.g., `123456789012345678,987654321098765432`). If you don't want to monitor specific channels, replace it with the word None.
 
 Save your `.env` file with the changes.
 
@@ -67,25 +78,27 @@ Your bot should now be running and connected to your Discord client. If you enco
 ---
 
 # Commands
+
 | Name  | Description           |
 |-------|-----------------------|
+| define | Get the meaning of a word  |
+| time | Get the current time  |
+| flip | Flip a message  |
+| prefix | Change the prefix  |
+| help | Shows this message  |
+| shortenlink | Shorten a link  |
+| joke | Get a random joke  |
+| animal | Get a random dog or cat image  |
+| whois | Get information about a user. |
+| date | Get the current date  |
 | ping | Get the latency of the bot  |
+| mock | Mock a message  |
+| prompt | Prompt chatGPT with a message (⚠CURRENTLY DISABLED⚠). |
+| dog | Get a random dog image  |
+| uwuify | UwUify a message  |
+| generate_readme | DEVELOPER COMMAND: Generate the README.md file  |
 | spotify | Spotify controller, play, pause, resume, etc. Full Spotify Control from Discord!  |
 | randnum | Generate a random number between two numbers  |
 | cat | Get a random cat image  |
 | reverse | Reverse a message  |
 | ascii | Creates an ascii art message  |
-| animal | Get a random dog or cat image  |
-| define | Get the meaning of a word  |
-| time | Get the current time  |
-| shortenlink | Shorten a link  |
-| flip | Flip a message  |
-| prefix | Change the prefix  |
-| help | Shows this message  |
-| joke | Get a random joke  |
-| whois | Get information about a user. |
-| generate_readme | DEVELOPER COMMAND: Generate the README.md file  |
-| uwuify | UwUify a message  |
-| mock | Mock a message  |
-| prompt | Prompt chatGPT with a message (⚠CURRENTLY DISABLED⚠). |
-| dog | Get a random dog image  |

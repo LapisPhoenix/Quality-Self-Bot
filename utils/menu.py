@@ -36,6 +36,10 @@ I8b,,___,,888b,_,d8b,  ,d8b,,d8,   ,d8b,,d8b,_ _,88,_,d88b,,d8b, ,d8I
         return [name, servers, friends, prefix, commands]
     
     def main(self):
+        # half = self.logo.split("\n")
+        # half = half[0]
+        # half = len(half) // 2
+        os.system("cls" if os.name == "nt" else "clear")
         print(self.logo)
         print(f"{Fore.LIGHTBLUE_EX + Style.BRIGHT}Welcome to A Quality Discord Self Bot!{Fore.RESET + Style.RESET_ALL}".center(35))
         print(f"Logging in as {Fore.LIGHTBLUE_EX + Style.BRIGHT}{self.user_data[0]}{Fore.RESET + Style.RESET_ALL}")
@@ -43,5 +47,5 @@ I8b,,___,,888b,_,d8b,  ,d8b,,d8,   ,d8b,,d8b,_ _,88,_,d88b,,d8b, ,d8I
         print(f"Friends: {Fore.LIGHTBLUE_EX + Style.BRIGHT}{self.user_data[2]}{Fore.RESET + Style.RESET_ALL}")
         print(f"Loaded: {Fore.LIGHTBLUE_EX + Style.BRIGHT}{self.user_data[4]}{Fore.RESET + Style.RESET_ALL} commands""")
         print(f"Prefix: {Fore.LIGHTBLUE_EX + Style.BRIGHT}{self.user_data[3]}{Fore.RESET + Style.RESET_ALL}")
-        print(f"{Fore.LIGHTGREEN_EX + Style.BRIGHT}Welcome!{Fore.RESET + Style.RESET_ALL}".center(35))
+        print(f"     {Fore.LIGHTGREEN_EX + Style.BRIGHT}Welcome!{Fore.RESET + Style.RESET_ALL}")
 
