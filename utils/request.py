@@ -28,3 +28,11 @@ class Request:
             future = executor.submit(self.fetch, url)
             result = future.result()
             return result
+    
+    def post(self, url: str, data: dict) -> dict:
+        """ Makes a POST request to the specified URL. """
+
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(requests.post, url, data=data)
+            result = future.result()
+            return result.json()

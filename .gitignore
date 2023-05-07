@@ -154,3 +154,9 @@ cython_debug/
 
 # Extensions
 .history
+
+# Generated Files
+discord-logs.txt
+
+# Local Files
+*.pdn

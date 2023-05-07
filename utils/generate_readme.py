@@ -1,4 +1,7 @@
-<p align="center">
+from discord.ext import commands
+
+
+inital_text = """<p align="center">
   <img alt="Logo" src="assets\\banner.png">
 </p>
 <p align="center">
@@ -66,26 +69,17 @@ Your bot should now be running and connected to your Discord client. If you enco
 
 ---
 
-# Commands
-| Name  | Description           |
-|-------|-----------------------|
-| ping | Get the latency of the bot  |
-| spotify | Spotify controller, play, pause, resume, etc. Full Spotify Control from Discord!  |
-| randnum | Generate a random number between two numbers  |
-| cat | Get a random cat image  |
-| reverse | Reverse a message  |
-| ascii | Creates an ascii art message  |
-| animal | Get a random dog or cat image  |
-| define | Get the meaning of a word  |
-| time | Get the current time  |
-| shortenlink | Shorten a link  |
-| flip | Flip a message  |
-| prefix | Change the prefix  |
-| help | Shows this message  |
-| joke | Get a random joke  |
-| whois | Get information about a user. |
-| generate_readme | DEVELOPER COMMAND: Generate the README.md file  |
-| uwuify | UwUify a message  |
-| mock | Mock a message  |
-| prompt | Prompt chatGPT with a message (⚠CURRENTLY DISABLED⚠). |
-| dog | Get a random dog image  |
+# Commands"""
+
+def generate(bot: commands.Bot, inital_text: str = ""):
+    inital_text = inital_text.replace("\\", "\\\\")
+    commands = [{"name": command.name, "description": command.help if command.help else "No Description Provided."} for command in bot.commands]
+
+    table = """| Name  | Description           |\n"""
+    table += """|-------|-----------------------|\n"""
+    
+    for command in commands:
+        table += f"| {command['name']} | {command['description']} |\n"
+    
+    with open("README.md", "w", encoding='utf-8') as file:
+        file.write(inital_text + "\n" + table)
